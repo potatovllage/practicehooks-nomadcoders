@@ -1,35 +1,17 @@
-import React, { useState } from "react";
-
-const content = [
-  {
-    tab: "Section1",
-    content: "I'm the content of the Section 1",
-  },
-  {
-    tab: "Section2",
-    content: "I'm the content of the Section 2",
-  },
-];
-
-const useTabs = (initialTab, allTabs) => {
-  if (!allTabs || Array.isArray(allTabs)) {
-    return;
-  }
-  const [currentIndex, setCurrentIndex] = useState(initialTab);
-  return {
-    currentItem: allTabs[currentIndex],
-    changeItem: setCurrentIndex,
-  };
-};
+import React, { useState, useEffect } from "react";
 
 function lecture1() {
-  const { currentItem, changeItem } = useTabs(0, content);
+  const sayHello = () => console.log("hello");
+  useEffect(() => {
+    sayHello();
+  }, []);
+  const [number, setNumber] = useState(0);
+  const [aNumber, setAnumber] = useState(0);
   return (
     <div>
-      {content.map((section, index) => (
-        <button onClick={() => changeItem(index)}>{section.tab}</button>
-      ))}
-      <div> {currentItem.content}</div>
+      <div>hi</div>
+      <button onClick={() => setNumber(number + 1)}>{number}</button>
+      <button onClick={() => setAnumber(aNumber + 1)}>{number}</button>
     </div>
   );
 }
