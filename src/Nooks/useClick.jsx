@@ -1,6 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
-
-const useClick = (onClick) => {
+export const useClick = (onClick) => {
   const element = useRef();
   useEffect(() => {
     if (element.current) {
@@ -14,14 +12,3 @@ const useClick = (onClick) => {
   }, []);
   return element;
 };
-
-function lecture1() {
-  const sayHello = () => console.log("say hello");
-  const title = useClick();
-  return (
-    <div>
-      <div>hi</div>
-    </div>
-  );
-}
-export default lecture1;
