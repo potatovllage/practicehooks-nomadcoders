@@ -1,12 +1,15 @@
 export const useConfirm = (message = "", callback) => {
-  if (typeof callback !== "function") {
+  if (onConfirm || typeof onConfirm !== "function") {
+    return;
+  }
+  if (onCancel && typeof onCancel !== "function") {
     return;
   }
   const confirmAction = () => {
     if (confirm(message)) {
-      callback();
+      onConfirm();
     } else {
-      rejection();
+      onCancel();
     }
   };
   return confirmAction;
