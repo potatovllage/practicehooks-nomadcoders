@@ -1,6 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
-
-const useFadeIn = (duration = 1, delay = 0) => {
+export const useFadeIn = (duration = 1, delay = 0) => {
   if (typeof duration !== "number" || typeof delay !== "number") {
     return;
   }
@@ -14,15 +12,3 @@ const useFadeIn = (duration = 1, delay = 0) => {
   }, []);
   return { ref: element, style: { opacity: 0 } };
 };
-
-function lecture1() {
-  const fadeInH1 = useFadeIn(1, 2);
-  const fadeInP = useFadeIn(5, 10);
-  return (
-    <div>
-      <h1 {...fadeInH1}>hello</h1>
-      <p {...fadeInP}>lorem ipsum lalalala</p>
-    </div>
-  );
-}
-export default lecture1;
